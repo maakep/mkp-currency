@@ -1,19 +1,16 @@
 import * as React from "react";
 
-import { MemberList, Member } from "./MemberList";
+import { MemberList } from "./MemberList";
+import { Member } from "../types";
 import Search from "./Search";
+import members from "../members";
 
 interface IStateType {
   search: string;
 }
 
 export class App extends React.Component<null, IStateType> {
-  members: Member[] = [
-    {code: 'urb', amount: 4},
-    {code: 'haj', amount: 3},
-    {code: 'lax', amount: 2},
-    {code: 'nik', amount: 1}
-  ];
+  members: Member[] = members;
   
   constructor(props: null) {
     super(props);

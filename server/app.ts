@@ -6,7 +6,10 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/*", (req, res) => {
+app.get("/*.js", (req, res) => {
+  res.sendFile(__dirname + req.url);
+});
+app.get("/*.(js|.css)", (req, res) => {
   res.sendFile(__dirname + req.url);
 });
 

@@ -1,9 +1,5 @@
 import * as React from "react";
-
-export type Member = {
-  code: string, 
-  amount: number
-}
+import {Member} from "../types";
 
 interface IPropType { 
   members: Member[],
@@ -19,9 +15,10 @@ export class MemberList extends React.Component<IPropType, undefined> {
       return (
         <div className="table">
           {this.props.members.map((value, i) => {
-            if ((this.props.searchPhrase.length > 2 && 
-                this.props.searchPhrase == value.code) || 
-                (this.props.searchPhrase.length < 3)) {
+            console.log(value.code.substr(this.props.searchPhrase.length));
+            if ((this.props.searchPhrase.length > 0 && 
+                this.props.searchPhrase == value.code.substr(0, this.props.searchPhrase.length) || 
+                (this.props.searchPhrase.length == 0))) {
               return (
                 <div key={value.code} className="table-row">
                   <div className="table-cell code">{value.code}</div>
