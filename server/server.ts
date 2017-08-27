@@ -12,6 +12,7 @@ export class Server {
     this.server = http.createServer(app);
     this.server.listen(this.port);
     console.log("Listening on :" + this.port);
+    console.log(process.cwd());
     this.configureRouting();
   }
 

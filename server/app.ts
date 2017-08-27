@@ -1,16 +1,13 @@
 import * as express from "express";
-
+import root from "./root";
 const app: express.Express = express();
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile("/index.html", { root: "./" });
 });
 
-app.get("/*.js", (req, res) => {
-  res.sendFile(__dirname + req.url);
-});
-app.get("/*.(js|.css)", (req, res) => {
-  res.sendFile(__dirname + req.url);
+app.get("/*.(js|css|png)", (req, res) => {
+  res.sendFile(req.url, { root: "./" });
 });
 
 export default app;

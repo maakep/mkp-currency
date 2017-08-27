@@ -1,6 +1,7 @@
 import { Member } from "../src/types";
 import { Server } from "./server";
 import * as fs from "fs";
+import root from "./root";
 
 export class Members {
   members: Member[];
@@ -12,7 +13,7 @@ export class Members {
   }
 
   getMembersFile(cb : (data: Member[]) => void) {
-    fs.readFile(__dirname + "/members.json", (err: any, data: any) => {
+    fs.readFile("members.json", (err: any, data: any) => {
       if (!err) {
         let memberData: Member[] = JSON.parse(data);
         memberData = memberData.sort((a, b) => {
@@ -24,7 +25,7 @@ export class Members {
         });
         cb(memberData);
       } else {
-        console.log(err);
+        console.log("fs readfile error: " + err);
       }
     });
   }

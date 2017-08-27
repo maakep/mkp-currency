@@ -2,7 +2,7 @@ var path = require("path");
 module.exports = {
     entry: {
         app: "./src/index.tsx",
-        server: "./server/server.ts"
+        // server: "./server/server.ts"
     },
     output: {
         filename: "[name].bundle.js",
@@ -15,7 +15,6 @@ module.exports = {
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json"],
-        modules: ['node_modules/']
     },
 
     module: {

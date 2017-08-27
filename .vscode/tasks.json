@@ -10,8 +10,9 @@
     },
     {
       "taskName": "server",
-      "command": "tsc server/server.ts --outDir .",
-      "type": "shell"
+      "command": "tsc server/server.ts --outDir dist-server",
+      "type": "shell",
+      "problemMatcher": []
     }
   ]
 }
