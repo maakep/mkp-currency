@@ -4,7 +4,7 @@ const members: Member[] =
 [
   {
     code: 'urb', 
-    amount: 10,
+    amount: 9,
   },
   {
     code: 'haj', 
@@ -12,13 +12,19 @@ const members: Member[] =
   },
   {
     code: 'lax', 
-    amount: 10,
+    amount: 9,
   },
   {
     code: 'nik',
     amount: 0,
   }
 ];
+
+var m = fetch('/members').then((res) => {
+  // const m = JSON.parse(res.json());
+  // this.members = 
+  // make this fetch shit work
+});
 
 export default members.sort((a, b) => {
     if (a.amount > b.amount)

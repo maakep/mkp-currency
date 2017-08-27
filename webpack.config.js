@@ -1,8 +1,12 @@
+var path = require("path");
 module.exports = {
-    entry: "./src/index.tsx",
+    entry: {
+        app: "./src/index.tsx",
+        server: "./server/server.ts"
+    },
     output: {
-        filename: "bundle.js",
-        path: __dirname + "/dist"
+        filename: "[name].bundle.js",
+        path: path.join(__dirname + "/dist")
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -10,7 +14,8 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".json"],
+        modules: ['node_modules/']
     },
 
     module: {
