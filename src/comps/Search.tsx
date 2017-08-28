@@ -15,14 +15,25 @@ export default class Search extends React.Component<IPropType, IStateType> {
       searchPhrase: ''
     }
   }
+  
   textChanged(text: React.FormEvent<HTMLInputElement>) {
     const textValue = text.currentTarget.value;
-    this.props.searchPerformed(textValue);
+    this.props.searchPerformed(textValue.toLowerCase());
+  }
+
+  focusMe(e: React.FocusEvent<HTMLInputElement>) {
+    e.currentTarget.focus();
   }
 
   render() {
       return (
-        <input type="text" onChange={(e: React.FormEvent<HTMLInputElement>) => this.textChanged(e)} />
+        <input 
+          className="search-input" 
+          type="text" 
+          onChange={(e: React.FormEvent<HTMLInputElement>) => this.textChanged(e)}
+          autoFocus={true}
+          onBlur={(e) => this.focusMe(e)}
+        />
       )
   }
 }

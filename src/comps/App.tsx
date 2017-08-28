@@ -3,7 +3,10 @@ import * as React from "react";
 import { MemberList } from "./MemberList";
 import { Member } from "../types";
 import Search from "./Search";
+import * as server from "./DataLayer";
 import members from "../members";
+
+const style = require("../../styles/style.css");
 
 interface IStateType {
   search: string;
@@ -19,11 +22,10 @@ export class App extends React.Component<null, IStateType> {
       members: members,
     }
 
-    fetch('/members')
-      .then((res) => { return res.json(); })
-      .then((data) => {
+    server.get('/members')
+      .then((data: Member[]) => {
         this.setState({members: data});
-      })
+      });
   }
 
   render() {
