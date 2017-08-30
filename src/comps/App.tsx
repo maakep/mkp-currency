@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import { MemberList } from "./MemberList";
 import { Member } from "../types";
 import Search from "./Search";
@@ -21,11 +20,18 @@ export class App extends React.Component<null, IStateType> {
       search: '',
       members: members,
     }
+    
+    this.getMembers();
+    setInterval(() => {
+      this.getMembers();
+    }, 30 * 1000);
+  }
 
+  getMembers() {
     server.get('/members')
-      .then((data: Member[]) => {
-        this.setState({members: data});
-      });
+    .then((data: Member[]) => {
+      this.setState({members: data});
+    });
   }
 
   render() {

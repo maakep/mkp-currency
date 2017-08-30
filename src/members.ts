@@ -1,5 +1,6 @@
 import { Member } from "./types";
 
+// use cache unless localStorage.getItem("members") == undefined?
 const members: Member[] = 
 [
   {

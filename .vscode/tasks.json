@@ -4,13 +4,14 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "taskName": "webpack",
-      "command": "webpack",
-      "type": "shell"
+      "taskName": "build",
+      "command": "tsc server/server.ts --outDir ./dist/ && webpack",
+      "type": "shell",
+      "problemMatcher": []
     },
     {
       "taskName": "server",
-      "command": "tsc server/server.ts --outDir dist-server",
+      "command": "tsc server/server.ts --outDir ./dist/",
       "type": "shell",
       "problemMatcher": []
     }
