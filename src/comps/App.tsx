@@ -29,16 +29,16 @@ export class App extends React.Component<null, IStateType> {
 
   getMembers() {
     server.get('/members')
-    .then((data: Member[]) => {
-      this.setState({members: data});
-    });
+      .then((data: Member[]) => {
+        this.setState({members: data});
+      });
   }
 
   render() {
       return (
         <div>
           <Search searchPerformed={(s: string) => this.setState({search: s})} />
-          <MemberList members={this.state.members} searchPhrase={this.state.search}/>
+          <MemberList app={this} members={this.state.members} searchPhrase={this.state.search}/>
         </div>
       )
   }

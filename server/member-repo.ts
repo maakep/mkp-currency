@@ -3,12 +3,18 @@ import { Server } from "./server";
 import * as fs from "fs";
 import root from "./root";
 
-export class Members {
+export interface IMemberServer {
+  setMembers: (m: Member[]) => void;
   members: Member[];
+}
+
+
+export class Members {
   server: Server;
 
   constructor(server: Server) {
     this.server = server;
+
     this.updateMembers();
     setInterval(() => {
       this.updateMembers();
@@ -25,9 +31,9 @@ export class Members {
     let jsonMembers = JSON.stringify(members);
     fs.writeFile("./members.json", jsonMembers, (err: any) => {
       if (err) {
-        console.log("member file failed");        
+        console.log("member file failed");
       } else {
-        console.log("new member file");
+        console.log("members updated");
       }
     }); 
   }

@@ -45,3 +45,10 @@ body {
   content: "\00a0  - ";
 }
 
+button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0 10px 0 10px;
+}

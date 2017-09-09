@@ -1,10 +1,12 @@
 import * as React from "react";
+import {App} from "./App";
 import {Member} from "../types";
 import {isAdmin} from "./admin";
 
 interface IPropType { 
   members: Member[],
-  searchPhrase: string
+  searchPhrase: string,
+  app: App,
 }
 
 export class MemberList extends React.Component<IPropType, undefined> {
@@ -21,7 +23,7 @@ export class MemberList extends React.Component<IPropType, undefined> {
       headers: new Headers({
         "Content-Type": "application/json"
       })
-    });
+    }).then((r) => this.props.app.getMembers());
   }
 
   render() {

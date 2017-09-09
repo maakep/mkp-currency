@@ -7,7 +7,11 @@
       "taskName": "build",
       "command": "tsc server/server.ts --outDir ./dist/ && webpack",
       "type": "shell",
-      "problemMatcher": []
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     },
     {
       "taskName": "server",

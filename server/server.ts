@@ -1,9 +1,9 @@
 import * as http from "http";
 import app from "./app";
 import { Member } from "../src/types";
-import { Members } from "./member-repo";
+import { Members, IMemberServer } from "./member-repo";
 
-export class Server {
+export class Server implements IMemberServer {
   port = '3000';
   server: http.Server;
   members: Member[];
@@ -12,7 +12,6 @@ export class Server {
     this.server = http.createServer(app);
     this.server.listen(this.port);
     console.log("Listening on :" + this.port);
-    console.log(process.cwd());
     this.configureRouting();
   }
 
