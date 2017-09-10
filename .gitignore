@@ -3,3 +3,4 @@ dist/
 dist-server/
 members.json
 transactions.json
+accounts.json

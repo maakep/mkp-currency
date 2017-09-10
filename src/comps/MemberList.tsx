@@ -36,7 +36,7 @@ export class MemberList extends React.Component<IPropType, undefined> {
                       -
                     </button>
                   }
-                  <div className="table-cell code">{value.code}</div>
+                  <div onClick={() => this.props.app.userClicked(value.code)} className="table-cell code">{value.code}</div>
                   <div className="table-cell amount">{value.amount}</div>
                   {isAdmin && 
                     <button onClick={(e) => this.crement(value, 1)}>
