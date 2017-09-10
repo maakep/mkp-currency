@@ -2,6 +2,7 @@ import * as React from "react";
 import {App} from "./App";
 import {Member} from "../types";
 import {isAdmin} from "./admin";
+import * as dataLayer from "./DataLayer";
 
 interface IPropType { 
   members: Member[],
@@ -17,13 +18,8 @@ export class MemberList extends React.Component<IPropType, undefined> {
   crement(member: Member, amount: number) {
     member.amount = amount;
 
-    fetch("/set-member", {
-      method: "POST",
-      body: JSON.stringify(member),
-      headers: new Headers({
-        "Content-Type": "application/json"
-      })
-    }).then((r) => this.props.app.getMembers());
+    dataLayer.post("/set-member", member)
+      .then((r) => this.props.app.getMembers());
   }
 
   render() {

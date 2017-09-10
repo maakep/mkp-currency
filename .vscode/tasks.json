@@ -18,6 +18,12 @@
       "command": "tsc server/server.ts --outDir ./dist/",
       "type": "shell",
       "problemMatcher": []
+    },
+    {
+      "taskName": "start server",
+      "command": "node dist/server/server.js",
+      "type": "shell",
+      "problemMatcher": []
     }
   ]
 }

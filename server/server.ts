@@ -31,11 +31,10 @@ export class Server implements IMemberServer {
       if (foundMember !== undefined)  {
         foundMember.amount += memberDiff.amount;
         this.updateMembers();
-        console.log(this.findMember(foundMember));
+        res.status(200).send({success: true});
       } else {
-        console.log("not found");
+        res.status(404).send({success: false});
       }
-      res.sendStatus(200);
     });
   }
   updateMembers() {
